@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Labelizer</title>
+    <link href="public/css/index.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- nav bar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand">Image labelizer</a>
+    </nav>
+    <div class="container-fluid">
+
+        <!-- content -->
+        <div class="row mt-3">
+            <!-- left pane for tasks -->
+            <div id="tasks" class="col-3">
+                <!-- objects to annotate -->
+                <div id="objects" class="card">
+                    <div class="card-header">
+                        Objects
+                    </div>
+                    <div id="objects-list" class="card-body">
+                        <!-- get from data here -->
+                    </div>
+                </div>
+                <!-- upcoming annotations -->
+                <div class="card mt-3">
+                    <div class="card-header">
+                        Upcoming annotations
+                    </div>
+                    <div id="upcoming-annotations" class="card-body">
+                        <!-- get from data here -->
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- central pane for current annotation image -->
+            <div id="curr-annotation" class="col-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <div id="curr-annotation-container">
+                            <!-- get from data  here-->
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2"><button type="button" class="btn btn-danger btn-block">Submit</button>
+                            </div>
+                            <div class="col-2"><button type="button" class="btn btn-warning btn-block">Reset</button>
+                            </div>
+                            <div class="col-2 offset-6"><button type="button"
+                                    class="btn btn-primary btn-block">Submit</button></div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="comment">Comment:</label>
+                            <textarea class="form-control" id="comment" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- right pane for current annotation information -->
+            <div id="curr-annotation-infos" class="col-3">
+                <div class="card">
+                    <div class="card-header">
+                        Infos
+                    </div>
+                    <div class="card-body">
+                        <p><span class="font-weight-bold">Task ID: </span><span id="curr-task-id"></span></p>
+                        <p><span class="font-weight-bold">Created at: </span><span id="curr-task-date"></span></p>
+                        <p><span class="font-weight-bold">Instruction: </span><span id="curr-task-instruction"></span>
+                        </p>
+                        <p><span class="font-weight-bold">Original image: </span><a href="#"
+                                id="curr-task-original-image">Link</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="public/js/data.js"></script>
+</body>
+
+</html>
