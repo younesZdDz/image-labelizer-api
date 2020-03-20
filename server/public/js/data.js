@@ -53,34 +53,79 @@ let annotations = [
     }
 ]
 
-for (let i=0; i<curAnnotation.params.objects_to_annotate.length; i++) {
-    let object = curAnnotation.params.objects_to_annotate[i]
-    $('#objects-list').append(`
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="objects" id="object-${object}" value="${object}"
-            ${i===0 ? "checked" : ""}>
-            <label class="form-check-label" for="object-${object}">
-                ${object}
-            </label>
-        </div>
-    `)
-}
+$(document).ready(function () {
 
-for (let i = 0; i < annotations.length; i++) {
-    let annotation = annotations[i];
-    $('#upcoming-annotations').append(`
-        <div id=upcoming-annotation-"${annotation._id}" class="upcoming-annotation ${i > 0 ? "mt-3" : ""}"><img
-            src="${annotation.params.attachment}"
-        alt="Annotation" /></div>
-    `)
-}
+    let annotator;
+    const render = (id_annotation) => {
+        if (id_annotation !== curAnnotation._id || !id_annotation) {
+            // ! get data from api
+            if (id_annotation)
+                annotations.push(curAnnotation)
+            for (let i = 0; i < annotations.length; i++) {
+                annotation = annotations[i]
+                if (annotation._id === id_annotation) {
+                    curAnnotation = annotation
+                    annotations.splice(i, 1)
 
-$('#curr-annotation-container').append(`
-    <img src="${curAnnotation.params.attachment}"
-        curr-annotation-containeralt="Current annotation image" />
-`)
+                }
+            }
+            $('#objects-list').html('')
+            for (let i = 0; i < curAnnotation.params.objects_to_annotate.length; i++) {
+                let object = curAnnotation.params.objects_to_annotate[i]
+                $('#objects-list').append(`
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="objects" id="object-${object}" value="${object}"
+                            ${i === 0 ? "checked" : ""}>
+                        <label class="form-check-label" for="object-${object}">
+                            ${object}
+                        </label>
+                    </div>
+                `)
+            }
+            $('#bbox_annotator').html('')
+            $('#curr-task-id').html(curAnnotation._id);
+            $('#curr-task-date').html(curAnnotation.created_at);
+            $('#curr-task-instruction').html(curAnnotation.instruction);
+            $('#curr-task-original-image').attr("href", curAnnotation.params.attachment);
+            $('#upcoming-annotations').html('')
+            for (let i = 0; i < annotations.length; i++) {
+                let annotation = annotations[i];
+                $('#upcoming-annotations').append(`
+                <div id="${annotation._id}" data-foo="${annotation._id}" class="upcoming-annotation ${i > 0 ? "mt-3" : ""}"><img
+                data-id="${annotation._id}"    
+                src="${annotation.params.attachment}"
+                alt="Annotation" /></div>
+            `)
+            }
+            $('.upcoming-annotation').click(function (event) {
+                const id = event.target.dataset.id
+                render(id)
+            })
 
-$('#curr-task-id').html(curAnnotation._id);
-$('#curr-task-date').html(curAnnotation.created_at);
-$('#curr-task-instruction').html(curAnnotation.instruction);
-$('#curr-task-original-image').attr("href", curAnnotation.params.attachment); 
+            annotator = new BBoxAnnotator({
+                url: curAnnotation.params.attachment,
+                input_method:  "fixed",
+                labels: curAnnotation.params.labels,
+                onchange: function (entries) {
+                    console.log(entries)
+                },
+                radio:  $('input:radio:checked')
+            });
+            // Initialize the reset button.
+            $("#reset_button").click(function (e) {
+                annotator.clear_all();
+            })
+
+
+
+
+
+        }
+    };
+
+
+    render()
+
+
+
+});
