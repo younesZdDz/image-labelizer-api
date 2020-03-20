@@ -1,6 +1,6 @@
 # Image annotation api and dashboard
 Api to out-source image labeling work <br/>
-For a example of similar api: [Scale AI](https://scale.com/)
+For an example of similar api: [Scale AI](https://scale.com/)
 # Using the api
 The api has an end-point '/api/annotation' in which it takes post requests of this form : <br/>
 ```javascript
