@@ -46,18 +46,19 @@
             <!-- central pane for current annotation image -->
             <div id="curr-annotation" class="col-6">
 
-                <div class="card">
-                    <div class="card-body">
-                        <div id="bbox_annotator" style="display:inline-block">
+                <div class="card" style="width:100%">
+                    <div class="card-body" style="width:100%">
+                        <div id="bbox_annotator" style="display:inline-block;width:100%">
                             <!-- get from data  here-->
                         </div>
-                        
+
                         <div class="row mt-3">
-                            <div class="col-2"><button type="button" class="btn btn-danger btn-block">Submit</button>
+                            <div class="col-3"><button type="button" class="btn btn-danger btn-block">Problem</button>
                             </div>
-                            <div class="col-2"><button type="button" class="btn btn-warning btn-block">Reset</button>
+                            <div class="col-2"><button id="reset_button" type="button"
+                                    class="btn btn-warning btn-block">Reset</button>
                             </div>
-                            <div class="col-2 offset-6"><button type="button"
+                            <div class="col-2 offset-5"><button type="button" id="submit"
                                     class="btn btn-primary btn-block">Submit</button></div>
                         </div>
                         <div class="form-group mt-2">
@@ -84,6 +85,14 @@
                         </p>
                     </div>
                 </div>
+                <div class="card mt-3">
+                    <div class="card-header">
+                        Annotations
+                    </div>
+                    <div class="card-body" id="annotations-entries">
+                       
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -94,7 +103,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script src="public/js/bbox_annotator.js"></script>
-    <script src="public/js/data.js"></script>
+    <script src="public/js/render.js"></script>
 </body>
 
 </html>

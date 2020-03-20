@@ -5,7 +5,7 @@ const { mongoURI } = require('./config/index')
 const apiRouter = require('./api-router')
 const frontendRouter = require('./frontend-router')
 const bodyParser = require('body-parser')
-var path = require('path');
+const path = require('path');
 
 const app = express()
 app.use(bodyParser.urlencoded({

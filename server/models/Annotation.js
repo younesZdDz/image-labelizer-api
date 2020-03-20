@@ -7,6 +7,7 @@ const AnnotationSchema = new Schema({
     status: {type: String, enum:['pending', 'completed'], default:'pending'},
     instruction: {type: String, required: true},
     response: {
+        comment: String,
         annotations:
             [{
                 left: Number,
