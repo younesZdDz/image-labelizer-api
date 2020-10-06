@@ -1,1 +1,5 @@
 
+node_modules
+dev.js
+.idea
+.DS_STORE
