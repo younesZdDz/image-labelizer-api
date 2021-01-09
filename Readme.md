@@ -39,4 +39,4 @@ The callback parameter is the response we give you containing labeled image. Exa
 }
 ```
 ## Dashboard
-(Check out the dashboard that consumes the API)[https://github.com/younesZdDz/image-labelizer]
+[Check out the dashboard that consumes the API.](https://github.com/younesZdDz/image-labelizer)
