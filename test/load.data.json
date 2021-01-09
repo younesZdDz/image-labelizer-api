@@ -1,0 +1,26 @@
+[
+    {
+        "instruction": "Annotate Mama cow and Baby cow",
+        "attachmentType": "image",
+        "attachment": "https://milkgenomics.org/wp-content/uploads/2013/08/bigstock-cows-mother-and-baby-3998546.jpg",
+        "objectsToAnnotate": ["Mama Cow", "Baby Cow"]
+    },
+    {
+        "instruction": "Annotate Cat and Dog",
+        "attachmentType": "image",
+        "attachment": "https://img.playbuzz.com/image/upload/ar_1.5,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2.5/v1547830280/ot9ko15kro7jwamk9myz.png",
+        "objectsToAnnotate": ["Dog", "Cat"]
+    },
+    {
+        "instruction": "Can you spot the fish?",
+        "attachmentType": "image",
+        "attachment": "https://turntable.kagiso.io/images/Screen_Shot_2017-06-29_at_2.08.28_PM.original.png",
+        "objectsToAnnotate": ["Fish"]
+    },
+    {
+        "instruction": "Find the cars",
+        "attachmentType": "image",
+        "attachment": "https://www.wallpaperup.com/uploads/wallpapers/2012/09/22/15901/40547e4ec01a03d5e8b070fba8a53fcd.jpg",
+        "objectsToAnnotate": ["Car"]
+    }
+]

@@ -1,7 +1,7 @@
-# Image annotation api and dashboard
+# Image annotation API
 Api to out-source image labeling work <br/>
 For a example of similar api: [Scale AI](https://scale.com/)
-# Using the api
+## Using the api
 The api has an end-point '/api/annotation' in which it takes post requests of this form : <br/>
 ```javascript
 {
@@ -38,10 +38,5 @@ The callback parameter is the response we give you containing labeled image. Exa
         comment: "Image is blury"
 }
 ```
-# Dashboard demo
-![demo](demo.gif)
-
-
-# Todo 
-* Add previously done annotations
-* Move to react and use socket.io (cause i was lazy)
+## Dashboard
+(Check out the dashboard that consumes the API)[https://github.com/younesZdDz/image-labelizer]
