@@ -31,4 +31,10 @@ export default {
             `${process.env.MONGO_USER_SECRET}@${process.env.MONGO_HOST}:` +
             `${process.env.MONGO_PORT}/${process.env.MONGO_DB}`,
     },
+    JWT: {
+        jwtAccessSecret: process.env.JWT_ACCESS_SECRET || 'qsdgjqshdgjh8ç!ç@__',
+        jwtRefreshSecret: process.env.JWT_REFRESH_SECRET || '098089qkshdq!à°!ç@__',
+        jwtAccessLife: parseInt(process.env.JWT_ACCESS_LIFE || '30', 10),
+        jwtRefreshLife: parseInt(process.env.JWT_REFRESH_LIFE || '60000', 10),
+    },
 };

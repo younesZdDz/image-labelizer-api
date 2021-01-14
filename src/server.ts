@@ -14,7 +14,7 @@ import { ApiError } from './utils/ApiError';
 const ddosInstance = new Ddos(config.SECURITY.ddosConfig);
 
 const corsOptions: CorsOptions = {
-    credentials: true,
+    exposedHeaders: 'authorization, x-refresh-token, x-access-expiry-time, x-refresh-expiry-time',
     origin: (origin, callback) => {
         if (origin && (!config.SECURITY.whitelist || config.SECURITY.whitelist.includes(origin))) {
             callback(null, true);

@@ -1,10 +1,28 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
-const { Schema } = mongoose;
+export interface IAnnotation extends Document {
+    createdAt: Date;
+    status: 'pending' | 'completed';
+    instruction: string;
+    response: {
+        comment: string;
+        annotations: {
+            left: number;
+            top: number;
+            width: number;
+            height: number;
+            label: string;
+        }[];
+    };
+    params: {
+        attachmentType: 'image';
+        attachment: string;
+        objectsToAnnotate: string[];
+    };
+}
 
 const AnnotationSchema = new Schema({
     createdAt: { type: Date, default: Date.now },
-    completed_at: Date,
     status: { type: String, enum: ['pending', 'completed'], default: 'pending' },
     instruction: { type: String, required: true },
     response: {
@@ -25,4 +43,4 @@ const AnnotationSchema = new Schema({
         objectsToAnnotate: [String],
     },
 });
-export default mongoose.model('Annotation', AnnotationSchema);
+export default mongoose.model<IAnnotation>('Annotation', AnnotationSchema);

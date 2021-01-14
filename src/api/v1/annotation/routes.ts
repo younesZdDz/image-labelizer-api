@@ -1,16 +1,17 @@
 import express from 'express';
 import controller from './controller';
+import { authorize } from '../../../middlewares/auth';
 
 const router = express.Router();
 
-router.put('/reset', controller.reset);
+router.route('/reset').put(authorize(), controller.reset);
 
-router.get('/status/:status/:page?', controller.getAnnotationByStatus);
+router.route('/status/:status/:page?').get(authorize(), controller.getAnnotationByStatus);
 
-router.get('/:_id', controller.getAnnotationById);
+router.route('/:_id').get(authorize(), controller.getAnnotationById);
 
-router.put('/:_id', controller.updateAnnotation);
+router.route('/:_id').put(authorize(), controller.updateAnnotation);
 
-router.post('/', controller.addAnnotation);
+router.route('/').post(authorize(), controller.addAnnotation);
 
 export default router;

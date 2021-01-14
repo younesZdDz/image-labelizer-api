@@ -20,6 +20,8 @@ const getAnnotationByStatus: express.Handler = async (req, res, next) => {
     try {
         const { status } = req.params;
         const page = req.params.page ? parseInt(req.params.page, 10) : 1;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         const response = await Annotation.find({ status })
             .limit(perPage)
             .skip(perPage * (page - 1));
