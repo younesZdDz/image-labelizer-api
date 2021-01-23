@@ -27,9 +27,8 @@ export default {
     },
     DB: {
         mongoURI:
-            `mongodb://${process.env.MONGO_USER}:` +
-            `${process.env.MONGO_USER_SECRET}@${process.env.MONGO_HOST}:` +
-            `${process.env.MONGO_PORT}/${process.env.MONGO_DB}`,
+            `mongodb+srv://${process.env.MONGO_USER}:` +
+            `${process.env.MONGO_USER_SECRET}@${process.env.MONGO_HOST}/${process.env.MONGO_DB}`,
     },
     JWT: {
         jwtAccessSecret: process.env.JWT_ACCESS_SECRET || 'qsdgjqshdgjh8ç!ç@__',
