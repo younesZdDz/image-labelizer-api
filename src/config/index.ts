@@ -34,7 +34,7 @@ export default {
     JWT: {
         jwtAccessSecret: process.env.JWT_ACCESS_SECRET || 'qsdgjqshdgjh8ç!ç@__',
         jwtRefreshSecret: process.env.JWT_REFRESH_SECRET || '098089qkshdq!à°!ç@__',
-        jwtAccessLife: parseInt(process.env.JWT_ACCESS_LIFE || '30', 10),
-        jwtRefreshLife: parseInt(process.env.JWT_REFRESH_LIFE || '60000', 10),
+        jwtAccessLife: parseInt(process.env.JWT_ACCESS_LIFE || '900', 10),
+        jwtRefreshLife: parseInt(process.env.JWT_REFRESH_LIFE || '86400', 10),
     },
 };

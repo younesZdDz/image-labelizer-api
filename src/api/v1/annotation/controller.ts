@@ -46,17 +46,14 @@ const updateAnnotation: express.Handler = async (req, res, next) => {
     const { annotations, comment } = req.body;
 
     try {
-        const response = await Annotation.updateOne(
-            { _id },
-            {
-                $set: {
-                    'response.annotations': annotations,
-                    'response.comment': comment,
-                    completed_at: new Date(),
-                    status: 'completed',
-                },
+        const response = await Annotation.findByIdAndUpdate(_id, {
+            $set: {
+                'response.annotations': annotations,
+                'response.comment': comment,
+                completed_at: new Date(),
+                status: 'completed',
             },
-        );
+        });
         return res.status(httpStatus.OK).send(response);
     } catch (error) {
         return next(error);
