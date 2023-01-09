@@ -67,7 +67,7 @@
     "helmet": "^4.2.0",
     "http-status": "^1.5.0",
     "jsonwebtoken": "^8.5.1",
-    "luxon": "^1.25.0",
+    "luxon": "^1.28.1",
     "mongoose": "^5.11.5",
     "yup": "^0.32.8"
   }
